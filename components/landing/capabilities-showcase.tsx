@@ -281,23 +281,25 @@ function CapabilityCard({
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-3xl border ${capability.border} transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${
+      className={`group relative overflow-hidden rounded-3xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       } ${isWide ? "flex flex-col lg:flex-row" : "flex flex-col"}`}
       style={{
         transitionDelay: isVisible ? `${index * 100}ms` : "0ms",
-        background: "rgba(255,255,255,0.45)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
+        background: "rgba(255,255,255,0.12)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        border: "1px solid rgba(255,255,255,0.25)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.3)",
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glass gradient overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} pointer-events-none`} />
+      {/* Top edge highlight — the key glassmorphism detail */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none" />
 
-      {/* Sheen on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+      {/* Hover sheen */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
       {/* Arrow in top right */}
       <div className={`absolute top-5 right-5 z-10 transition-all duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}>
@@ -311,13 +313,13 @@ function CapabilityCard({
 
       {/* Text content */}
       <div className={`relative z-10 p-8 lg:p-10 ${isWide ? "lg:w-1/2 flex flex-col justify-center" : ""}`}>
-        <h3 className="text-2xl lg:text-3xl font-semibold text-foreground mb-1 leading-tight">
+        <h3 className="text-2xl lg:text-3xl font-semibold text-white mb-1 leading-tight">
           {capability.title}
         </h3>
-        <p className={`text-base font-normal mb-4 ${capability.accent}`}>
+        <p className="text-base font-normal mb-4 text-white/60">
           {capability.subtitle}
         </p>
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-sm text-white/50 leading-relaxed">
           {capability.description}
         </p>
       </div>
@@ -356,20 +358,22 @@ export function CapabilitiesShowcase() {
     <section
       ref={sectionRef}
       className="relative py-24 lg:py-32 border-t border-foreground/10 overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #f0f4ff 0%, #fafafa 50%, #fff7ed 100%)" }}
+      style={{ background: "linear-gradient(135deg, #6366f1 0%, #a855f7 30%, #f59e0b 60%, #22c55e 100%)" }}
     >
-      {/* Background blur orbs */}
-      <div className="absolute top-20 left-20 w-96 h-96 rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, #a5b4fc, transparent)" }} />
-      <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, #fde68a, transparent)" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl opacity-20" style={{ background: "radial-gradient(circle, #86efac, transparent)" }} />
+      {/* Large vivid blobs that show through the glass */}
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-60" style={{ background: "radial-gradient(circle, #818cf8, #6366f1)" }} />
+      <div className="absolute top-10 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #f472b6, #a855f7)" }} />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #34d399, #059669)" }} />
+      <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #fbbf24, #f59e0b)" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full blur-3xl opacity-40" style={{ background: "radial-gradient(circle, #38bdf8, #0ea5e9)" }} />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className={`max-w-3xl mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-6 leading-[1.05]">
+          <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-6 leading-[1.05] text-white">
             One platform for your entire GST lifecycle.
           </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+          <p className="text-lg lg:text-xl text-white/70 leading-relaxed">
             Reakon handles the complexity so you can focus on growing your business.
           </p>
         </div>
