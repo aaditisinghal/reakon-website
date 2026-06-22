@@ -102,7 +102,7 @@ export function Navigation() {
             
             <Button
               size="sm"
-              className={`bg-foreground hover:bg-foreground/90 text-background rounded-sm transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
+              className={`bg-amber-400 hover:bg-amber-500 text-black rounded-sm transition-all duration-500 font-semibold ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
             >
               Contact Us now
             </Button>

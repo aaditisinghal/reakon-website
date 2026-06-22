@@ -11,6 +11,7 @@ import { DevelopersSection } from "@/components/landing/developers-section";
 import { TrustedBySection } from "@/components/landing/trusted-by-section";
 import { IntroVideoSection } from "@/components/landing/intro-video-section";
 import { WhatReakonDoesSection } from "@/components/landing/what-reakon-does-section";
+import { CapabilitiesShowcase } from "@/components/landing/capabilities-showcase";
 import { FaqSection } from "@/components/landing/faq-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
@@ -24,6 +25,7 @@ export default function Home() {
       <HeroSection />
       <TrustedBySection />
       <IntroVideoSection />
+      <CapabilitiesShowcase />
       <WhatReakonDoesSection />
       <FeaturesSection />
 <HowItWorksSection />
