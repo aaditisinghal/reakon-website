@@ -9,6 +9,7 @@ import { TestimonialMarqueeSection } from "@/components/landing/testimonials-mar
 import { SecuritySection } from "@/components/landing/security-section";
 import { DevelopersSection } from "@/components/landing/developers-section";
 import { TrustedBySection } from "@/components/landing/trusted-by-section";
+import { MacbookDemoSection } from "@/components/landing/macbook-demo-section";
 import { IntroVideoSection } from "@/components/landing/intro-video-section";
 import { WhatReakonDoesSection } from "@/components/landing/what-reakon-does-section";
 import { FaqSection } from "@/components/landing/faq-section";
@@ -21,6 +22,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <TrustedBySection />
+      <MacbookDemoSection />
       <IntroVideoSection />
       <WhatReakonDoesSection />
       <FeaturesSection />

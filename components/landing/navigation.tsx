@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -12,171 +11,226 @@ const navLinks = [
   { name: "FAQ", href: "#faq" },
 ];
 
+function IndianFlag() {
+  return (
+    <svg width="22" height="16" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" className="rounded-sm overflow-hidden shrink-0">
+      <rect width="28" height="6.67" y="0" fill="#FF9933" />
+      <rect width="28" height="6.67" y="6.67" fill="#FFFFFF" />
+      <rect width="28" height="6.67" y="13.33" fill="#138808" />
+      <circle cx="14" cy="10" r="2.8" fill="none" stroke="#000080" strokeWidth="0.5" />
+      <circle cx="14" cy="10" r="0.4" fill="#000080" />
+      {[...Array(24)].map((_, i) => {
+        const angle = (i * 15 * Math.PI) / 180;
+        return (
+          <line
+            key={i}
+            x1={14 + 0.4 * Math.cos(angle)}
+            y1={10 + 0.4 * Math.sin(angle)}
+            x2={14 + 2.4 * Math.cos(angle)}
+            y2={10 + 2.4 * Math.sin(angle)}
+            stroke="#000080"
+            strokeWidth="0.4"
+          />
+        );
+      })}
+    </svg>
+  );
+}
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "top-4 left-4 right-4" 
-          : "top-0 left-0 right-0"
-      }`}
-    >
-      <nav 
-        className={`mx-auto transition-all duration-500 ${
-          isScrolled || isMobileMenuOpen
-            ? "bg-background/80 backdrop-blur-xl border border-foreground/10 rounded-2xl shadow-lg max-w-[1200px]"
-            : "bg-transparent max-w-[1400px]"
+    <>
+      <div
+        style={{
+          position: "fixed",
+          top: isScrolled ? "10px" : "0px",
+          left: isScrolled ? "44px" : "0px",
+          right: isScrolled ? "44px" : "0px",
+          zIndex: 50,
+          transition: "top 600ms cubic-bezier(0.4,0,0.2,1), left 600ms cubic-bezier(0.4,0,0.2,1), right 600ms cubic-bezier(0.4,0,0.2,1)",
+        }}
+      >
+        <nav
+          style={{
+            width: "100%",
+            borderRadius: isScrolled ? "18px" : "0px",
+            background: isScrolled ? "rgba(255,255,255,0.90)" : "rgba(255,255,255,0.72)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            border: isScrolled ? "1px solid rgba(0,0,0,0.09)" : "none",
+            borderBottom: isScrolled ? undefined : "1px solid rgba(0,0,0,0.07)",
+            boxShadow: isScrolled ? "0 8px 40px rgba(0,0,0,0.10), 0 1px 0 rgba(255,255,255,0.6) inset" : "none",
+            transition: "border-radius 600ms cubic-bezier(0.4,0,0.2,1), background 400ms ease, box-shadow 400ms ease",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              height: isScrolled ? "62px" : "76px",
+              padding: isScrolled ? "0 20px" : "0 40px",
+              transition: "height 600ms cubic-bezier(0.4,0,0.2,1), padding 600ms cubic-bezier(0.4,0,0.2,1)",
+            }}
+          >
+            {/* Logo */}
+            <a href="#" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+              <img
+                src="/reakon no-bg logo-black.png"
+                alt="Reakon"
+                style={{
+                  height: "56px",
+                  display: "block",
+                }}
+              />
+            </a>
+
+            {/* Desktop Nav Links */}
+            <div className="hidden md:flex items-center" style={{ gap: "2px" }}>
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => {
+                    const id = link.href.replace("#", "");
+                    const el = document.getElementById(id);
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="whitespace-nowrap rounded-lg hover:bg-black/[0.06] transition-colors duration-150 cursor-pointer"
+                  style={{
+                    padding: "6px 12px",
+                    fontSize: "13.5px",
+                    fontWeight: 500,
+                    color: "rgba(0,0,0,0.55)",
+                    background: "none",
+                    border: "none",
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "rgba(0,0,0,0.9)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(0,0,0,0.55)")}
+                >
+                  {link.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Right: flag + sign in + CTA */}
+            <div className="hidden md:flex items-center" style={{ gap: "8px" }}>
+              <IndianFlag />
+
+              <a
+                href="#"
+                className="whitespace-nowrap rounded-lg hover:bg-black/[0.06] transition-colors duration-150"
+                style={{
+                  padding: "6px 12px",
+                  fontSize: "13.5px",
+                  fontWeight: 500,
+                  color: "rgba(0,0,0,0.55)",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = "rgba(0,0,0,0.9)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(0,0,0,0.55)")}
+              >
+                Sign in
+              </a>
+
+              <a
+                href="#"
+                className="whitespace-nowrap"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "8px 18px",
+                  fontSize: "13.5px",
+                  fontWeight: 600,
+                  color: "#fff",
+                  background: "#000",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.25)",
+                  transition: "opacity 150ms ease, transform 150ms ease",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = "0.82"; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}
+                onMouseDown={e => { e.currentTarget.style.transform = "scale(0.97)"; }}
+                onMouseUp={e => { e.currentTarget.style.transform = "scale(1)"; }}
+              >
+                Contact Us now
+              </a>
+            </div>
+
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-black/5 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 bg-white transition-all duration-300 ${
+          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div 
-          className={`flex items-center justify-between transition-all duration-500 px-6 lg:px-8 ${
-            isScrolled ? "h-14" : "h-20"
-          }`}
-        >
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <img
-              src="/reakon logo.png"
-              alt="Reakon"
-              className={`transition-all duration-500 ${isScrolled ? "h-8" : "h-10"}`}
-            />
-            <div className="flex items-baseline gap-1">
-              <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>Reakon</span>
-              <span className={`text-muted-foreground font-mono transition-all duration-500 ${isScrolled ? "text-[9px]" : "text-xs"}`}>TM</span>
-            </div>
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-12">
-            {navLinks.map((link) => (
-              <a
+        <div className="flex flex-col h-full px-8 pt-28 pb-10">
+          <div className="flex-1 flex flex-col justify-center gap-6">
+            {navLinks.map((link, i) => (
+              <button
                 key={link.name}
-                href={link.href}
-                className="text-sm text-foreground/70 hover:text-foreground transition-colors duration-300 relative group"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    const id = link.href.replace("#", "");
+                    const el = document.getElementById(id);
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }, 300);
+                }}
+                className={`text-4xl font-display font-semibold text-foreground hover:text-foreground/50 transition-all duration-300 cursor-pointer text-left ${
+                  isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: isMobileMenuOpen ? `${i * 60}ms` : "0ms", background: "none", border: "none" }}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
-              </a>
+              </button>
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* Indian flag */}
-            <svg width="28" height="20" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" className="rounded-sm overflow-hidden shrink-0" title="Made in India">
-              <rect width="28" height="6.67" y="0" fill="#FF9933"/>
-              <rect width="28" height="6.67" y="6.67" fill="#FFFFFF"/>
-              <rect width="28" height="6.67" y="13.33" fill="#138808"/>
-              {/* Ashoka Chakra */}
-              <circle cx="14" cy="10" r="2.8" fill="none" stroke="#000080" strokeWidth="0.5"/>
-              <circle cx="14" cy="10" r="0.4" fill="#000080"/>
-              {[...Array(24)].map((_, i) => {
-                const angle = (i * 15 * Math.PI) / 180;
-                return (
-                  <line
-                    key={i}
-                    x1={14 + 0.4 * Math.cos(angle)}
-                    y1={10 + 0.4 * Math.sin(angle)}
-                    x2={14 + 2.4 * Math.cos(angle)}
-                    y2={10 + 2.4 * Math.sin(angle)}
-                    stroke="#000080"
-                    strokeWidth="0.4"
-                  />
-                );
-              })}
-            </svg>
-            <a href="#" className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}>
+          <div
+            className={`flex gap-3 pt-8 border-t border-black/10 transition-all duration-300 ${
+              isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: isMobileMenuOpen ? "280ms" : "0ms" }}
+          >
+            <a
+              href="#"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex-1 flex items-center justify-center h-14 rounded-2xl border border-black/15 text-base font-medium hover:bg-black/5 transition-colors"
+            >
               Sign in
             </a>
-            
-            <Button
-              size="sm"
-              className={`bg-foreground hover:bg-foreground/90 text-background rounded-sm transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
-            >
-              Contact Us now
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </div>
-
-      </nav>
-      
-      {/* Mobile Menu - Full Screen Overlay */}
-      <div
-        className={`md:hidden fixed inset-0 bg-background z-40 transition-all duration-500 ${
-          isMobileMenuOpen 
-            ? "opacity-100 pointer-events-auto" 
-            : "opacity-0 pointer-events-none"
-        }`}
-        style={{ top: 0 }}
-      >
-        <div className="flex flex-col h-full px-8 pt-28 pb-8">
-          {/* Navigation Links */}
-          <div className="flex-1 flex flex-col justify-center gap-8">
-            {navLinks.map((link, i) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-5xl font-display text-foreground hover:text-muted-foreground transition-all duration-500 ${
-                  isMobileMenuOpen 
-                    ? "opacity-100 translate-y-0" 
-                    : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: isMobileMenuOpen ? `${i * 75}ms` : "0ms" }}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-          
-          {/* Bottom CTAs */}
-          <div className={`flex gap-4 pt-8 border-t border-foreground/10 transition-all duration-500 ${
-            isMobileMenuOpen 
-              ? "opacity-100 translate-y-0" 
-              : "opacity-0 translate-y-4"
-          }`}
-          style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
-          >
-            <Button 
-              variant="outline" 
-              className="flex-1 rounded-full h-14 text-base"
+            <a
+              href="#"
               onClick={() => setIsMobileMenuOpen(false)}
+              className="flex-1 flex items-center justify-center h-14 rounded-2xl bg-black text-white text-base font-semibold hover:bg-black/80 transition-colors"
             >
-              Sign in
-            </Button>
-            <Button 
-              className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Start creating
-            </Button>
+              Contact Us
+            </a>
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Iphone } from "@/components/ui/iphone";
 
 const words = ["GST money",
 "Input tax credit",
@@ -55,7 +56,7 @@ export function HeroSection() {
         ))}
       </div>
       
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-32">
         {/* Eyebrow */}
         <div 
           className={`mb-8 transition-all duration-700 ${
@@ -73,18 +74,17 @@ export function HeroSection() {
           <div>
             {/* Main headline */}
             <div className="mb-12">
-              <h1 
-                className={`text-[clamp(3rem,12vw,10rem)] font-display leading-[0.9] tracking-tight transition-all duration-1000 ${
+              <h1
+                className={`text-[clamp(2.5rem,5vw,5rem)] font-display leading-[0.95] tracking-tight transition-all duration-1000 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                <span className="block" style={{ fontSize: "96px" }}>Protecting </span>
-           
+                <span className="block">Protecting </span>
+
                   <span className="relative inline-block">
                     <span
                       key={wordIndex}
                       className="inline-flex"
-                      style={{ fontSize: "96px" }}
                     >
                       {words[wordIndex].split("").map((char, i) => (
                         <span
@@ -99,19 +99,18 @@ export function HeroSection() {
                         </span>
                       ))}
                     </span>
-                    <span className="absolute -bottom-2 left-0 right-0 h-3 bg-foreground/10" />
-                  </span>     <span className="block" style={{ fontSize: "96px" }}>
+                  </span>
+                  <span className="block">
                   of Indian businesses like never before{" "}
                 </span>
               </h1>
             </div>
             
             {/* Description */}
-            <p 
-              className={`text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+            <p
+              className={`text-base lg:text-xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
-              style={{ fontSize: "20px" }}
             >
               Recovering the GST credit you're losing, chases the customers who owe you, and flags the vendors who put your money at risk — all on WhatsApp, without changing how you work.
 
@@ -140,21 +139,21 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Right Column - MacBook Image */}
-          <div 
-            className={`relative flex items-center justify-center transition-all duration-700 delay-300 -mr-12 lg:-mr-24 ${
+          {/* Right Column - iPhone portrait */}
+          <div
+            className={`relative flex items-center justify-center transition-all duration-700 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <img 
-              src="modern-latest-laptop-mockup-front-view-smartphone-mockup-high-quality-isolated-white-backgrou_659151-5186-Photoroom.png"
-              alt="MacBook Pro and iPhone mockup"
-              className="w-full h-auto drop-shadow-2xl"
+            <div
               style={{
-                filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15))",
-                background: "transparent",
+                width: "100%",
+                maxWidth: "380px",
+                filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.18)) drop-shadow(0 8px 16px rgba(0,0,0,0.10))",
               }}
-            />
+            >
+              <Iphone src="/reakon-whatsapp.png" />
+            </div>
           </div>
         </div>
         
