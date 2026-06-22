@@ -50,7 +50,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 lg:py-40 border-t border-foreground/10">
+    <section id="faq" className="relative py-24 lg:py-40 border-t border-foreground/10">
       <div className="max-w-4xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-16">

@@ -385,7 +385,7 @@ export function WhatReakonDoesSection() {
   const { ref: headerRef, inView: headerVisible } = useInView(0.2);
 
   return (
-    <section className="relative py-24 lg:py-32 border-t border-foreground/10">
+    <section id="what-reakon-does" className="relative py-24 lg:py-32 border-t border-foreground/10">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div

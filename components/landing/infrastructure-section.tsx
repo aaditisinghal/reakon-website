@@ -101,7 +101,7 @@ export function InfrastructureSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 lg:py-32 bg-white border-t border-foreground/10 overflow-hidden">
+    <section ref={sectionRef} id="infrastructure" className="relative py-24 lg:py-32 bg-white border-t border-foreground/10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
         {/* Header */}
