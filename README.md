@@ -506,12 +506,6 @@ npm start
 - HTTPS-only in production
 - CSP headers configured in Next.js
 
-## 📞 Contact & Support
-
-- **Website**: [reakon.in](https://reakon.in)
-- **Email**: krishna@profitwise.app
-- **GitHub**: [aaditisinghal/reakon-website](https://github.com/aaditisinghal/reakon-website)
-
 ## 📄 License
 
 This project is proprietary and confidential. All rights reserved to Reakon.
@@ -583,4 +577,4 @@ Contributions are welcome! Please:
 
 **Last Updated**: June 22, 2026
 
-**Maintainer**: Aadit Isinghal ([@aaditisinghal](https://github.com/aaditisinghal))
+**Maintainer**: Aaditi singhal ([@aaditisinghal](https://github.com/aaditisinghal))
