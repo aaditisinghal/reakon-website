@@ -125,7 +125,7 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
-                className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-sm group"
+                className="bg-amber-400 hover:bg-amber-500 text-black px-8 h-14 text-base rounded-sm group font-semibold"
               >
                 Start free trial
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />

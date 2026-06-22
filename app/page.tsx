@@ -14,10 +14,12 @@ import { WhatReakonDoesSection } from "@/components/landing/what-reakon-does-sec
 import { FaqSection } from "@/components/landing/faq-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
+import { NewsletterPopup } from "@/components/landing/newsletter-popup";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay">
+      <NewsletterPopup />
       <Navigation />
       <HeroSection />
       <TrustedBySection />
