@@ -358,14 +358,11 @@ export function CapabilitiesShowcase() {
     <section
       ref={sectionRef}
       className="relative py-24 lg:py-32 border-t border-foreground/10 overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #6366f1 0%, #a855f7 30%, #f59e0b 60%, #22c55e 100%)" }}
+      style={{ background: "#000000" }}
     >
-      {/* Large vivid blobs that show through the glass */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-60" style={{ background: "radial-gradient(circle, #818cf8, #6366f1)" }} />
-      <div className="absolute top-10 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #f472b6, #a855f7)" }} />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #34d399, #059669)" }} />
-      <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #fbbf24, #f59e0b)" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full blur-3xl opacity-40" style={{ background: "radial-gradient(circle, #38bdf8, #0ea5e9)" }} />
+      {/* Subtle dark blobs so glass still has depth */}
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, #1e1e2e, transparent)" }} />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "radial-gradient(circle, #1a1a2e, transparent)" }} />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
