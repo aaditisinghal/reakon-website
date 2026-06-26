@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -62,20 +63,22 @@ export function CtaSection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <Button
-                    size="lg"
-                    className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-sm group"
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center text-white px-8 h-14 text-base rounded-sm group hover:opacity-90 transition-opacity"
+                    style={{ background: "oklch(0.62 0.15 160)" }}
                   >
                     Start your free trial today
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-14 px-8 text-base rounded-sm border-foreground/20 hover:bg-foreground/5"
+                  </a>
+                  <a
+                    href="https://cal.com/reakon.in/45min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center h-14 px-8 text-base rounded-sm border border-foreground/20 text-foreground hover:bg-foreground/5 transition-colors"
                   >
                     Talk to sales
-                  </Button>
+                  </a>
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">

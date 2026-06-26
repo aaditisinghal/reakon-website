@@ -142,18 +142,20 @@ export function Navigation() {
               </a>
 
               <a
-                href="#"
-                className="whitespace-nowrap"
+                href="https://cal.com/reakon.in/45min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whitespace-nowrap flex-1"
                 style={{
-                  display: "inline-flex",
+                  display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   padding: "8px 18px",
                   fontSize: "13.5px",
                   fontWeight: 600,
                   color: "#fff",
-                  background: "#000",
-                  borderRadius: "10px",
+                  background: "oklch(0.62 0.15 160)",
+                  borderRadius: "0px",
                   textDecoration: "none",
                   boxShadow: "0 1px 4px rgba(0,0,0,0.25)",
                   transition: "opacity 150ms ease, transform 150ms ease",
@@ -163,7 +165,7 @@ export function Navigation() {
                 onMouseDown={e => { e.currentTarget.style.transform = "scale(0.97)"; }}
                 onMouseUp={e => { e.currentTarget.style.transform = "scale(1)"; }}
               >
-                Contact Us now
+                Contact Us Now
               </a>
             </div>
 
@@ -222,9 +224,12 @@ export function Navigation() {
               Sign in
             </a>
             <a
-              href="#"
+              href="https://cal.com/reakon.in/45min"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex-1 flex items-center justify-center h-14 rounded-2xl bg-black text-white text-base font-semibold hover:bg-black/80 transition-colors"
+              className="flex-1 flex items-center justify-center h-14 rounded-2xl text-white text-base font-semibold hover:opacity-80 transition-colors"
+              style={{ background: "oklch(0.62 0.15 160)" }}
             >
               Contact Us
             </a>

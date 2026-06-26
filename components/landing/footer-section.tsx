@@ -5,34 +5,32 @@ import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
   Product: [
-    { name: "Features", href: "#features" },
+    { name: "Features",     href: "#what-reakon-does" },
     { name: "How it works", href: "#how-it-works" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Integrations", href: "#integrations" },
+    { name: "Integrations", href: "/coming-soon?page=Integrations" },
   ],
   Developers: [
-    { name: "Documentation", href: "#developers" },
-    { name: "API Reference", href: "#" },
-    { name: "SDK", href: "#developers" },
-    { name: "Status", href: "#" },
+    { name: "Documentation", href: "/coming-soon?page=Documentation" },
+    { name: "API Reference",  href: "/coming-soon?page=API+Reference" },
+    { name: "SDK",            href: "/coming-soon?page=SDK" },
+    { name: "Status",         href: "/coming-soon?page=Status" },
   ],
   Company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Careers", href: "#", badge: "Hiring" },
-    { name: "Contact", href: "#" },
+    { name: "About",   href: "/coming-soon?page=About" },
+    { name: "Blog",    href: "/coming-soon?page=Blog" },
+    { name: "Contact", href: "/coming-soon?page=Contact" },
   ],
   Legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
-    { name: "Security", href: "#security" },
+    { name: "Privacy",  href: "/privacy" },
+    { name: "Terms",    href: "/coming-soon?page=Terms" },
+    { name: "Security", href: "/coming-soon?page=Security" },
   ],
 };
 
 const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/reakon.in/" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/company/reakon-in/" },
-  { name: "Twitter", href: "#" },
+  { name: "LinkedIn",  href: "https://www.linkedin.com/company/reakon-in/" },
+  { name: "Twitter",   href: "https://x.com/Reakonofficial" },
 ];
 
 export function FooterSection() {
@@ -42,7 +40,7 @@ export function FooterSection() {
       <div className="absolute inset-0 h-64 opacity-20 pointer-events-none overflow-hidden">
         <AnimatedWave />
       </div>
-      
+
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Main Footer */}
         <div className="py-16 lg:py-24">
@@ -53,8 +51,8 @@ export function FooterSection() {
                 <span className="text-2xl font-display">Reakon</span>
                 <span className="text-xs text-muted-foreground font-mono">TM</span>
               </a>
+               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
 
-              <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
                 The platform to protect your GST and customer payments starting today.
               </p>
 
@@ -72,7 +70,6 @@ export function FooterSection() {
                 ))}
               </div>
             </div>
-
             {/* Link Columns */}
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
@@ -96,21 +93,23 @@ export function FooterSection() {
                 </ul>
               </div>
             ))}
+
+
+            
+
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
+       
           <p className="text-sm text-muted-foreground">
-            2026 Reakon. All rights reserved.
+            © 2026 Reakon Technologies Pvt. Ltd. All rights reserved.
           </p>
-
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500" />
-              All systems operational
-            </span>
-          </div>
+          <span className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="w-2 h-2 rounded-full bg-green-500" />
+            All systems operational
+          </span>
         </div>
       </div>
     </footer>

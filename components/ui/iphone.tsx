@@ -85,7 +85,7 @@ export function Iphone({ src, videoSrc, children, className, style, ...props }: 
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="absolute inset-0 size-full"
-        style={{ transform: "translateZ(0)", zIndex: 20 }}
+        style={{ transform: "translateZ(0)", zIndex: 20, pointerEvents: "none" }}
       >
         <defs>
           <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">

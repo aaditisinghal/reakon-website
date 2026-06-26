@@ -1,15 +1,14 @@
 import { Navigation } from "@/components/landing/navigation";
 import { HeroSection } from "@/components/landing/hero-section";
-import { FeaturesSection } from "@/components/landing/features-section";
 import { HowItWorksSection } from "@/components/landing/how-it-works-section";
 import { InfrastructureSection } from "@/components/landing/infrastructure-section";
-import { MetricsSection } from "@/components/landing/metrics-section";
-import { IntegrationsSection } from "@/components/landing/integrations-section";
 import { TestimonialMarqueeSection } from "@/components/landing/testimonials-marquee-section";
+import { BuiltForSection } from "@/components/landing/built-for-section";
+import { LogoMarqueeSection } from "@/components/landing/logo-marquee-section";
 import { SecuritySection } from "@/components/landing/security-section";
-import { DevelopersSection } from "@/components/landing/developers-section";
 import { TrustedBySection } from "@/components/landing/trusted-by-section";
 import { MacbookDemoSection } from "@/components/landing/macbook-demo-section";
+import { ReakonHeroSection } from "@/components/landing/reakon-hero";
 import { IntroVideoSection } from "@/components/landing/intro-video-section";
 import { WhatReakonDoesSection } from "@/components/landing/what-reakon-does-section";
 import { FaqSection } from "@/components/landing/faq-section";
@@ -23,16 +22,15 @@ export default function Home() {
       <HeroSection />
       <TrustedBySection />
       <MacbookDemoSection />
+      <ReakonHeroSection />
       <IntroVideoSection />
       <WhatReakonDoesSection />
-      <FeaturesSection />
-<HowItWorksSection />
+      <HowItWorksSection />
       <InfrastructureSection />
-      <MetricsSection />
       <TestimonialMarqueeSection />
-      <IntegrationsSection />
+      <BuiltForSection />
+      <LogoMarqueeSection />
       <SecuritySection />
-      <DevelopersSection />
       <FaqSection />
       <CtaSection />
       <FooterSection />
