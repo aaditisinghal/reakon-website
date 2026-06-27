@@ -17,7 +17,7 @@ const footerLinks = {
   ],
   Company: [
     { name: "About",   href: "/coming-soon?page=About" },
-    { name: "Blog",    href: "/coming-soon?page=Blog" },
+    { name: "Blog",    href: "/blog" },
     { name: "Contact", href: "/coming-soon?page=Contact" },
   ],
   Legal: [
